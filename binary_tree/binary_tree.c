@@ -10,7 +10,7 @@ void print_tree(bt root)
     }
 }
 
-bt create(int value, char symbol)
+bt b_create(int value, char symbol)
 {
     bt temp = malloc(sizeof(bt));
     temp->value = value;

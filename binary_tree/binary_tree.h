@@ -10,7 +10,9 @@ typedef struct binary_tree
 } *bt;
 
 void print_tree(bt root);
-bt create(int value, char symbol);
+
+// create empty binary tree
+bt b_create(int value, char symbol);
 
 //to fix
 //bt push(bt root, int value, char symbol); 

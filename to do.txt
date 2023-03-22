@@ -1,0 +1,4 @@
+tasks to do:
+    1. rewrite binary_tree "create" function
+    2. finish priority_queue structure
+    3. finish priority_queue functions (insert, heapify)
