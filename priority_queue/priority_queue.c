@@ -17,56 +17,55 @@ queue create()
     return temp;    
 }
 
-void heapify(bt *array[], int size, int i)
+void heapify(queue q, int i)
 {
-    if (size > 1)
+    if (q.size > 1)
     {
         int lowest = i;
         int left = 2 * i + 1;
         int right = 2 * i + 2;
-        if (left < size && array[left]->value < array[lowest]->value)
+        if (left < q.size && q.array[left]->value < q.array[lowest]->value)
             lowest = left;
-        if (right < size && array[right]->value < array[lowest]->value)
+        if (right < q.size && q.array[right]->value < q.array[lowest]->value)
             lowest = right;
 
         if (lowest != i)
         {
-            swap(&array[i], &array[lowest]);
-            heapify(array, size, lowest);
+            swap(&q.array[i], &q.array[lowest]);
+            heapify(q, lowest);
         }  
     }
 }
 
-void insert(bt *array[], int *size, bt new_node) 
+void insert(queue q, bt new_node) 
 {
-    if (size == 0) {
-        array[0] = new_node;
-        size += 1;
+    if (q.size == 0) {
+        q.array[0] = new_node;
+        q.size += 1;
     } 
     else
     {
-        array[size] = new_node;
-        size += 1;
-        for (int i = size / 2 - 1; i >= 0; i--)
-            heapify(array, size, i);    
+        q.array[q.size] = new_node;
+        q.size += 1;
+        for (int i = q.size / 2 - 1; i >= 0; i--)
+            heapify(q, i);    
     }
 }
 
 
-void kill(bt array[], int size)
+void kill(queue q)
 {
-    swap(&array[0], &array[size - 1]);
-    for (int i = size / 2 - 1; i >= 0; i--)
-        heapify(array, size, i);   
+    swap(&q.array[0], &q.array[q.size - 1]);
+    for (int i = q.size / 2 - 1; i >= 0; i--)
+        heapify(q, i);   
 }
 
 
-void print_queue(bt array[], int size)
+void print_queue(queue q)
 {
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < q.size; i++)
     {
-        print_tree(array[i]); 
+        print_tree(q.array[i]); 
         printf("\n");
     }
-     
 }

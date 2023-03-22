@@ -6,7 +6,7 @@
 typedef struct priority_queue
 {
     int size;
-    bt * array[1000];
+    bt array[1000];
 } queue;
 
 //create empty queue
@@ -16,13 +16,13 @@ queue create();
 void swap(bt *first, bt *second);
 
 // heapify priority queue
-void heapify(bt array[], int size, int i);
+void heapify(queue q, int i);
 
 // insert new element into queue
-void insert(bt array[], int size, bt new_node);
+void insert(queue q, bt new_node);
 
 // delete root element from queue
-void kill(bt array[], int size);
-''
+void kill(queue q);
+
 // print priority queue
-void print_queue(bt array[], int size);
+void print_queue(queue q);
