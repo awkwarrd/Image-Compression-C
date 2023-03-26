@@ -3,10 +3,11 @@
 
 #include "../binary_tree/binary_tree.h"
 
+// priority queue
 typedef struct priority_queue
 {
     int size;
-    bt array[1000];
+    bt array[2000];
 } queue;
 
 //create empty queue
@@ -16,13 +17,13 @@ queue create();
 void swap(bt *first, bt *second);
 
 // heapify priority queue
-void heapify(queue q, int i);
+void heapify(queue *q, int i);
 
 // insert new element into queue
-void insert(queue q, bt new_node);
+void insert(queue *q, bt new_node);
 
 // delete root element from queue
-void kill(queue q);
+bt kill(queue *q);
 
 // print priority queue
 void print_queue(queue q);

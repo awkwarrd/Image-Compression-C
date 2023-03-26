@@ -1,0 +1,46 @@
+/*bt first_root = b_create(8, 'x');
+    first_root->left = b_create(6, 'o');
+    first_root->right = b_create(10, 'p');
+
+    bt second_root = b_create(16, 'l');
+    second_root->left = b_create(13, 'u');
+    second_root->right = b_create(20, 'n');
+
+    bt third_root = b_create(26, 'g');
+    third_root -> left = b_create(22, 'y');
+    third_root -> right = b_create(30, 'f');
+
+    bt roflan_root = b_create(2, 'w');
+    bt huge_root = b_create(98, 'i');
+    huge_root->left = b_create(78, 'm');
+
+    queue q = create();
+    insert(&q, second_root);
+    insert(&q, huge_root); 
+    insert(&q, first_root);
+    insert(&q, third_root);
+    insert(&q, roflan_root);
+
+
+    print_queue(q);
+    printf("\n\n");
+    while (q.size > 0)
+    {
+        print_tree(kill(&q));
+        printf("\n");
+    }
+        
+    
+
+    printf("%d\n", q.size);
+    */
+    /*char x = 'm';
+    printf("%c ", x);
+
+    FILE *in = fopen("x.txt", "r");
+    
+    while ((x = fgetc(in)) != EOF)
+    {
+        printf("%c", x);
+    }*/
+

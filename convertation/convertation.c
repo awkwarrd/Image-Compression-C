@@ -6,7 +6,6 @@ void convertation(char* filename)
 {
     FILE *in = fopen(filename, "rb");
     FILE *out = fopen("convertation.txt", "w");
-
     if (!in)
     {
         printf("Cannot open file. Try again\n");
@@ -14,9 +13,20 @@ void convertation(char* filename)
     }
     short x;
     while ((x = fgetc(in)) != EOF)
-       fputc((char)x,out);
+    {
+        printf("%d ", x);
+        fputc((char)x, out);
+    }
     fclose(in);
     fclose(out);
-    return ;   
+
+    in = fopen("convertation.txt","r");
+    out = fopen("convertation.bmp", "wb");
     
+    while ((x = fgetc(in)) != EOF)
+    {
+        //printf("%c ", (char)x);
+        fputc((char)x, out);
+    }    
+    return ;   
 }
