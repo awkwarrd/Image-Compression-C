@@ -1,18 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// binary tree
 typedef struct binary_tree
 {
     int value;
-    char symbol;
+    short symbol;
     struct binary_tree *left;
     struct binary_tree *right;
 } *bt;
 
-void print_tree(bt root);
-bt create(int value, char symbol);
+// print binary tree
+void print_tree(bt root, int level);
 
-//to fix
-//bt push(bt root, int value, char symbol); 
+// create empty binary tree
+bt b_create(int value, short symbol);
 
+// merge two binary trees into new one
 bt merge(bt first, bt second);
+
+// H-Tree search
+void H_tree_search(char *anc, bt Tree, char *ans[300]);
