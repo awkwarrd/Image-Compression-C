@@ -1,13 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <string.h>
 #include "binary_tree.h"
 
-void print_tree(bt root)
+void print_tree(bt root, int level)
 {
-    if (root != NULL)
+    if(root != NULL)
     {
-        print_tree(root->left);
-        printf("(%d - %c) ", root->value, root->symbol);
-        print_tree(root->right);
+        print_tree(root->left, level + 1);
+        for(int i = 0; i < level; i++)
+            printf("%s", "   ");
+        printf("%c\n", root->symbol == 300 ? 'X' : root->symbol);
+        print_tree(root->right, level + 1);
     }
 }
 
@@ -23,7 +27,7 @@ bt b_create(int value, short symbol)
 
 bt merge(bt first, bt second)
 {
-    bt temp = b_create(first->value + second->value, (short)'.');
+    bt temp = b_create(first->value + second->value, (short)(300));
     if (first->value <= second->value)
     {
         temp->left = first;
@@ -37,14 +41,11 @@ bt merge(bt first, bt second)
     return temp;
 }
 
-void H_tree_search(char anc[1000], bt Tree, char *ans[300])
+void H_tree_search(char *anc, bt Tree, char *ans[300])
 {
-    if (Tree->symbol != '.')
+    if (Tree->symbol != (short)300)
     {
-
-        ans[(int)Tree->symbol] = anc;
-        printf("1");
-        //printf("(%s - %d) === %d\n", anc, Tree->symbol, Tree->value);
+        strcpy(ans[(int)Tree->symbol],anc);
         return;
     }
     char r = '1';
@@ -53,9 +54,10 @@ void H_tree_search(char anc[1000], bt Tree, char *ans[300])
     strcpy(temp, anc);
     strncat(temp, &l, 1);
     H_tree_search(temp, Tree->left, ans);
-    printf("2");
+    
     strcpy(temp, anc);
     strncat(temp, &r, 1); 
     H_tree_search(temp, Tree->right, ans);
-    printf("3");
+    
+    free(temp);
 }   

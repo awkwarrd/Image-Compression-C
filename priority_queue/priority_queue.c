@@ -69,7 +69,7 @@ void print_queue(queue q)
 {
     for (int i = 0; i < q.size; i++)
     {
-        print_tree(q.array[i]); 
+        print_tree(q.array[i], 0); 
         printf("\n");
     }
 }

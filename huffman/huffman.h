@@ -3,4 +3,4 @@
 
 #include "../priority_queue/priority_queue.h"
 
-void huffman(char in_f[], char out_f[]);
+bt huffman(char in_f[], char out_f[]);
