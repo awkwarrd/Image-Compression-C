@@ -10,7 +10,7 @@ void print_tree(bt root, int level)
         print_tree(root->left, level + 1);
         for(int i = 0; i < level; i++)
             printf("%s", "   ");
-        printf("%c\n", root->symbol == 300 ? 'X' : root->symbol);
+        printf("%c\n", root->symbol == 300 ? '{' : root->symbol);
         print_tree(root->right, level + 1);
     }
 }
