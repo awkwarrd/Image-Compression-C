@@ -4,6 +4,7 @@ bt huffman(char in_f[], char out_f[])
 {
     FILE *in = fopen(in_f, "rb"); 
     FILE *out = fopen(out_f, "w");
+    FILE *huffman  = fopen("Codes.txt", "w");
 
     if (!in)
     {
@@ -52,10 +53,16 @@ bt huffman(char in_f[], char out_f[])
    
     bt H_tree = q.array[0];
     H_tree_search("", H_tree, &ans);
-   
-   
+
+    for (int i = 0; i < 300; i++)
+    {
+        if (strcmp(ans[i], ""))
+            fprintf(huffman,"%d %s\n", i, ans[i]);
+    }
+
     int separator = 0;
     short temp = 0;
+
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; ans[text[i]][j] == '1' || ans[text[i]][j] == '0'; j++)
@@ -73,7 +80,8 @@ bt huffman(char in_f[], char out_f[])
     }
     if (separator > 0)
         fputc((char)(temp), out);
-
+    
+    fputc((char)('0' + 8 - separator), out);
 
     fclose(in);
     fclose(out);
