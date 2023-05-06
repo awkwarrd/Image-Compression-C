@@ -67,21 +67,21 @@ bt huffman(char in_f[], char out_f[])
     {
         for (int j = 0; ans[text[i]][j] == '1' || ans[text[i]][j] == '0'; j++)
         {
-            if (separator == 8)
+            if (separator == 7)
             {
                 fputc((char)(temp), out);
                 separator = 0;
                 temp = 0;
             }
             if (ans[text[i]][j] == '1')
-                temp = temp + (1 << (7 - separator));
+                temp = temp + (1 << (6 - separator));
             separator += 1;
         }
     }
     if (separator > 0)
         fputc((char)(temp), out);
     
-    fputc((char)('0' + 8 - separator), out);
+    fputc((char)('0' + 7 - separator), out);
 
     fclose(in);
     fclose(out);
